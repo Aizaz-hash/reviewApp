@@ -10,6 +10,8 @@ namespace ReviewApp.Helper
         public mappingProfiles()
         {
             CreateMap<Character , CharacterDTO>();
+            CreateMap<Category , CategoryDTO>();
+            CreateMap<Country , CountryDTO>();
         }
     }
 }

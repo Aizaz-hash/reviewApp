@@ -17,6 +17,8 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 //repository injection
 builder.Services.AddScoped<ICharacterRespsoitory, CharacterRespository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

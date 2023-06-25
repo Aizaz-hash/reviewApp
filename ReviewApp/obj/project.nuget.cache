@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "louVCS3tuzG0/RE03T7c85u654OwBPgPU11WMtbRNeRKN5f0dIIKRKJFwrPUbr66FoD2SbMpjTUQiHLEYLluEg==",
+  "dgSpecHash": "eGk927KZg2CtV5Do0EMgoNcIngVhPsScvzMvRSp0pwnUqF80cIfIl1zi95ooesSo8DbIHaPjmNx/3irAq1oEYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\dotnet\\New folder\\ReviewApp\\ReviewApp\\ReviewApp.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\dotnet\\ReviewApp\\ReviewApp\\ReviewApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

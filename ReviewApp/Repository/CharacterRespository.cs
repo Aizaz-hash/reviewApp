@@ -7,7 +7,7 @@ namespace ReviewApp.Repository
 {
     public class CharacterRespository : ICharacterRespsoitory
     {
-        private readonly DataContext _Context;
+        private  DataContext _Context;
         public CharacterRespository(DataContext context)
         {
          

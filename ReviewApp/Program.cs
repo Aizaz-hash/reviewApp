@@ -4,6 +4,7 @@ using ReviewApp.Data;
 using ReviewApp.Interfaces;
 using ReviewApp.Repository;
 using AutoMapper;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 //sseding data
 builder.Services.AddTransient<Seed>();
+
+builder.Services.AddControllers().AddJsonOptions(x => 
+x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 //auto mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -21,6 +25,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICountryRespository, CountryRespository>();
 builder.Services.AddScoped<IOwnerRespository, OwnerRespository>();
 builder.Services.AddScoped<IReviewRespository, ReviewRespository>();
+builder.Services.AddScoped<IReviewerRepository, ReviewerRepository>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

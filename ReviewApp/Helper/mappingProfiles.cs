@@ -14,6 +14,7 @@ namespace ReviewApp.Helper
             CreateMap<Country , CountryDTO>();
             CreateMap<Owner , OwnerDTO>();
             CreateMap<Reviews , ReviewsDTO>();
+            CreateMap<Reviewers , ReviewersDTO>();
         }
     }
 }

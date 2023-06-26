@@ -16,7 +16,7 @@ namespace ReviewApp.Controller
         private readonly ICountryRespository _countryRespository;
         private readonly IMapper _mapper;
 
-        public CountryController(ICountryRespository countryRespositor , IMapper mapper)
+        public CountryController(ICountryRespository countryRespositor, IMapper mapper)
         {
             _countryRespository = countryRespositor;
             _mapper = mapper;
@@ -54,13 +54,13 @@ namespace ReviewApp.Controller
             return Ok(country);
         }
 
-        
+
         [HttpGet("/owners/{ownerId}")]
         [ProducesResponseType(200, Type = typeof(Country))]
         [ProducesResponseType(400)]
         public IActionResult GetCountryByOwner(int ownerId)
         {
-         var   Country =_mapper.Map<CountryDTO>(_countryRespository.GetCountryByOwner(ownerId));
+            var Country = _mapper.Map<CountryDTO>(_countryRespository.GetCountryByOwner(ownerId));
 
             if (!ModelState.IsValid)
             {
@@ -72,5 +72,46 @@ namespace ReviewApp.Controller
 
         }
 
+
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+
+        public IActionResult CreateCountry([FromBody] CountryDTO countryCreate)
+        {
+            if (countryCreate == null)
+            {
+                return BadRequest();
+            }
+
+            var country = _countryRespository.GetCountries().Where(c =>
+                c.Name.Trim().ToUpper() == countryCreate.Name.TrimEnd().ToUpper())
+                .FirstOrDefault();
+
+            if (country != null)
+            {
+                ModelState.AddModelError("", "country Already Exists");
+
+                return StatusCode(422, ModelState);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var countryMap = _mapper.Map<Country>(countryCreate);
+
+            if (!_countryRespository.CreateCountry(countryMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while saving");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("successfully created !");
+
+        }
     }
 }

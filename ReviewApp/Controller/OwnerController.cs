@@ -14,10 +14,13 @@ namespace ReviewApp.Controller
     {
         private readonly IOwnerRespository _ownerRespository;
         private readonly IMapper _mapper;
+        private readonly ICountryRespository _countryRepository;
 
-        public OwnerController(IOwnerRespository ownerRespository , IMapper mapper)
+        public OwnerController(IOwnerRespository ownerRespository , 
+            ICountryRespository countryRespository,IMapper mapper)
         {
             _ownerRespository = ownerRespository;
+            _countryRepository = countryRespository;
             _mapper = mapper;
            
         }
@@ -71,6 +74,48 @@ namespace ReviewApp.Controller
                 return BadRequest(ModelState);
 
             return Ok(owner);
+        }
+
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+
+        public IActionResult CreateOwner([FromQuery] int countryId, [FromBody] OwnerDTO ownerCreate)
+        {
+            if (ownerCreate == null)
+            {
+                return BadRequest();
+            }
+
+            var owner = _ownerRespository.GetOwners().Where(c =>
+                c.lastName.Trim().ToUpper() == ownerCreate.lastName.TrimEnd().ToUpper())
+                .FirstOrDefault();
+
+            if (owner != null)
+            {
+                ModelState.AddModelError("", "Owner Already Exists");
+
+                return StatusCode(422, ModelState);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var onwerMap = _mapper.Map<Owner>(ownerCreate);
+            onwerMap.country = _countryRepository.GetCountry(countryId);
+
+            if (!_ownerRespository.CreateOwner(onwerMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while saving");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("successfully created !");
+
         }
 
 

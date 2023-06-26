@@ -18,7 +18,12 @@ namespace ReviewApp.Repository
             return _context.Categories.Any(c => c.Id == id);
         }
 
+        public bool CreateCategory(Category category)
+        {
+            _context.Add(category);
 
+            return save();
+        }
 
         public ICollection<Category> GetCategories()
         {
@@ -35,6 +40,11 @@ namespace ReviewApp.Repository
             return _context.characterCategories.Where(e => e.CategoryId == categoryId).Select(c => c.Character).ToList();
         }
 
+        public bool save()
+        {
+            var save = _context.SaveChanges();
 
+            return save > 0? true: false;
+        }
     }
 }

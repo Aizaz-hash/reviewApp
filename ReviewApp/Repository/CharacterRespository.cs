@@ -46,5 +46,45 @@ namespace ReviewApp.Repository
             return _Context.characters.Any(p=>p.Id== characterID);
         }
 
+        public bool CreateCharacter(int ownerId, int categoryId, Character chracter)
+        {
+            var characterEntity = _Context.owners.Where(a=>a.Id==ownerId).FirstOrDefault();
+            var category = _Context.Categories.Where(c=>c.Id ==categoryId).FirstOrDefault();
+
+
+            //character owner relationship constructor
+            var characterOwner = new CharacterOwner()
+            {
+                owner = characterEntity,
+                character = chracter,
+            };
+
+            _Context.Add(characterOwner);
+
+            //character category relationship constructor
+
+            var characterCatgory = new CharacterCategory()
+            {
+                Category = category,
+                Character = chracter,
+
+            };
+
+
+            _Context.Add(characterCatgory);
+
+            _Context.Add(chracter);
+
+            return save();
+        }
+
+        //is saved fucntion
+        public bool save()
+        {
+
+            var saved = _Context.SaveChanges();
+
+            return saved>0 ?  true:false;
+        }
     }
 }

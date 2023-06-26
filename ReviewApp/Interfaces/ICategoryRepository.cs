@@ -9,5 +9,9 @@ namespace ReviewApp.Interfaces
         Category GetCategory(int id);
         ICollection<Character> GetCharacterByCategoryId(int categoryId);
         bool CategoriesExists(int id);
+
+        bool CreateCategory(Category category);
+
+        bool save();
     }
 }

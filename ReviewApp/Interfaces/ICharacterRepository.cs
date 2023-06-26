@@ -11,5 +11,9 @@ namespace ReviewApp.Interfaces
         decimal GetCharacterRating(int characterID);
 
         bool CharacterExists(int characterID);
+
+        bool CreateCharacter(int ownerId , int categoryId , Character character);
+
+        bool save();
     }
 }

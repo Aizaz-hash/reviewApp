@@ -17,6 +17,13 @@ namespace ReviewApp.Repository
             return _context.countries.Any(c => c.Id == id);
         }
 
+        public bool CreateCountry(Country country)
+        {
+            _context.Add(country);
+
+            return save();
+        }
+
         public ICollection<Country> GetCountries()
         {
             return _context.countries.ToList();
@@ -36,6 +43,13 @@ namespace ReviewApp.Repository
         {
             return _context.owners.Where(c => c.country.Id == countryId).ToList();
 
+        }
+
+        public bool save()
+        {
+            var save = _context.SaveChanges();
+
+            return save > 0 ? true : false;
         }
     }
 }

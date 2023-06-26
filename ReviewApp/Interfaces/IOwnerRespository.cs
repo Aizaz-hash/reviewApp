@@ -13,5 +13,9 @@ namespace ReviewApp.Interfaces
         ICollection<Character> GetCharacterByOwner(int ownerId);
 
         bool OwnerExists(int ownerId);
+
+        public bool CreateOwner(Owner owner);
+        public bool save();
+
     }
 }

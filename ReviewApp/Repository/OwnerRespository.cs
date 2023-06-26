@@ -14,6 +14,14 @@ namespace ReviewApp.Repository
             _context = context;
             
         }
+
+        public bool CreateOwner(Owner owner)
+        {
+            _context.Add(owner);
+
+            return save();
+        }
+
         public ICollection<Character> GetCharacterByOwner(int ownerId)
         {
             return _context.characterOwners.Where(p => p.OwnerId == ownerId).Select(c => c.character).ToList();
@@ -38,6 +46,13 @@ namespace ReviewApp.Repository
         public bool OwnerExists(int ownerId)
         {
             return _context.owners.Any(o => o.Id == ownerId);
+        }
+
+        public bool save()
+        {
+            var save = _context.SaveChanges();
+
+            return save > 0 ? true : false;
         }
     }
 }

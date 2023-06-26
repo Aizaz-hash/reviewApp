@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ReviewApp.Data;
 using ReviewApp.Interfaces;
 using ReviewApp.Models;
@@ -15,6 +16,14 @@ namespace ReviewApp.Repository
             _context = context;
             _mapper = mapper;
         }
+
+        public bool CreateReview(Reviews review)
+        {
+            _context.Add(review);
+
+            return save();
+        }
+
         public Reviews GetReview(int reviewID)
         {
             return _context.reviews.Where(r=>r.Id == reviewID).FirstOrDefault();
@@ -35,6 +44,13 @@ namespace ReviewApp.Repository
         {
 
             return _context.reviews.Any(r=>r.Id== reviewID);
+        }
+        public bool save()
+        {
+
+            var saved = _context.SaveChanges();
+
+            return saved > 0 ? true : false;
         }
     }
 }

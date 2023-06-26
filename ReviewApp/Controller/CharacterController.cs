@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using ReviewApp.DTO;
 using ReviewApp.Interfaces;
 using ReviewApp.Models;
+using ReviewApp.Repository;
 
 namespace ReviewApp.Controller
 {
@@ -78,6 +79,47 @@ namespace ReviewApp.Controller
             return Ok(rating);
 
         }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+
+        public IActionResult CreateCharacter([FromQuery] int ownerId, [FromQuery] int categoryId, [FromBody] CharacterDTO characterCreate)
+        {
+            if (characterCreate == null)
+            {
+                return BadRequest();
+            }
+
+            var characters = _characterRepository.GetCharacters().Where(c =>
+                c.Name.Trim().ToUpper() == characterCreate.Name.TrimEnd().ToUpper())
+                .FirstOrDefault();
+
+            if (characters != null)
+            {
+                ModelState.AddModelError("", "Character Already Exists");
+
+                return StatusCode(422, ModelState);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var characterMap = _mapper.Map<Character>(characterCreate);
+
+            if (!_characterRepository.CreateCharacter( ownerId , categoryId ,characterMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while saving");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("successfully created !");
+
+        }
+
 
 
     }

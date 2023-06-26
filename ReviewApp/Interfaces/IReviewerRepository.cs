@@ -13,6 +13,12 @@ namespace ReviewApp.Interfaces
 
         ICollection<Reviews> GetReviewsByReviewer(int reviewerId);
 
+        bool CreateReviewer(Reviewers reviewers);
+
+        bool save();
+
+
+
 
     }
 }

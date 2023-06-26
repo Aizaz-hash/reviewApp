@@ -19,6 +19,13 @@ namespace ReviewApp.Repository
             
         }
 
+        public bool CreateReviewer(Reviewers reviewers)
+        {
+            _context.Add(reviewers);
+
+            return save();
+        }
+
         public Reviewers GetReviewer(int reviewerId)
         {
             return _context.reviewers.Where(r=>r.Id == reviewerId).Include(e=>e.reviews) .FirstOrDefault();
@@ -39,6 +46,14 @@ namespace ReviewApp.Repository
         {
 
             return _context.reviewers.Any(r => r.Id == reviewerId);
+        }
+
+        public bool save()
+        {
+
+            var saved = _context.SaveChanges();
+
+            return saved > 0 ? true : false;
         }
     }
 }

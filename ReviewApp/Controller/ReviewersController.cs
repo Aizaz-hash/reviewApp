@@ -74,6 +74,47 @@ namespace ReviewApp.Controller
         }
 
 
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+
+        public IActionResult CreateReviewer([FromBody] ReviewersDTO reviewerCreate)
+        {
+            if (reviewerCreate == null)
+            {
+                return BadRequest();
+            }
+
+            var reviewer = _reviewerRepository.GetReviewers().Where(c =>
+                c.lastName.Trim().ToUpper() == reviewerCreate.lastName.TrimEnd().ToUpper())
+                .FirstOrDefault();
+
+            if (reviewer != null)
+            {
+                ModelState.AddModelError("", "Reviewer Already Exists");
+
+                return StatusCode(422, ModelState);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var reviewerMap = _mapper.Map<Reviewers>(reviewerCreate);
+
+            if (!_reviewerRepository.CreateReviewer(reviewerMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while saving");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("successfully created !");
+
+        }
+
+
     }
 
 

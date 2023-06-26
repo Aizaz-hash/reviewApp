@@ -11,5 +11,9 @@ namespace ReviewApp.Interfaces
         ICollection<Reviews> GetReviewsOfCharacter(int characterID);
 
         bool ReviewExists(int reviewID);
+
+        bool CreateReview(Reviews review);
+
+        bool save();
     }
 }

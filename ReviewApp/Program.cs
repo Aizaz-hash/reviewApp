@@ -20,6 +20,7 @@ builder.Services.AddScoped<ICharacterRespsoitory, CharacterRespository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICountryRespository, CountryRespository>();
 builder.Services.AddScoped<IOwnerRespository, OwnerRespository>();
+builder.Services.AddScoped<IReviewRespository, ReviewRespository>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

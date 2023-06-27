@@ -22,6 +22,12 @@ namespace ReviewApp.Repository
             return save();
         }
 
+        public bool DeleteOwner(Owner owner)
+        {
+            _context.Remove(owner); 
+            return save();
+        }
+
         public ICollection<Character> GetCharacterByOwner(int ownerId)
         {
             return _context.characterOwners.Where(p => p.OwnerId == ownerId).Select(c => c.character).ToList();

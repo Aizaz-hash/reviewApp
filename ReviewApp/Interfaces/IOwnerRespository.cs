@@ -19,6 +19,8 @@ namespace ReviewApp.Interfaces
 
         bool UpdateOwner(Owner owner);
 
+        public bool DeleteOwner(Owner owner);
+
 
     }
 }

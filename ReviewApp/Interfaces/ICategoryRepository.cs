@@ -14,6 +14,8 @@ namespace ReviewApp.Interfaces
 
         bool UpdateCategory(Category category);
 
+        bool DeleteCategory(Category category);
+
 
         bool save();
     }

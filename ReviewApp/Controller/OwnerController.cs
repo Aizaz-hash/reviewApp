@@ -161,6 +161,38 @@ namespace ReviewApp.Controller
         }
 
 
+        [HttpDelete("{ownerId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteOwner (int ownerId)
+        {
+            if (!_ownerRespository.OwnerExists(ownerId))
+            {
+                return BadRequest(ModelState);
+            }
+
+            var owner = _ownerRespository.GetOwner(ownerId);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+
+            }
+
+            if (!_ownerRespository.DeleteOwner(owner))
+            {
+                ModelState.AddModelError("", "Somethign went wrong while deleting Owner");
+
+                return StatusCode(500, ModelState);
+            }
+
+
+            return Ok("Successfully Deleted !");
+        }
+
+
 
 
 

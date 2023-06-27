@@ -24,6 +24,12 @@ namespace ReviewApp.Repository
             return save();
         }
 
+        public bool DeleteCountry(Country country)
+        {
+            _context.Remove(country);
+            return save();
+        }
+
         public ICollection<Country> GetCountries()
         {
             return _context.countries.ToList();

@@ -16,6 +16,8 @@ namespace ReviewApp.Interfaces
         bool CreateReviewer(Reviewers reviewers);
         bool UpdateReviewer(Reviewers reviewers);
 
+        bool DeleteReviewer(Reviewers reviewers);
+
         bool save();
 
 

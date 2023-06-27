@@ -168,6 +168,47 @@ namespace ReviewApp.Controller
         }
 
 
+        [HttpDelete("{characterId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteCharacter(int characterId)
+        {
+            if (!_characterRepository.CharacterExists(characterId))
+            {
+                return NotFound(ModelState);
+            }
+
+            var character = _characterRepository.GetCharacter(characterId);
+            var reviewsToBeDeleted  = _reviewRespository.GetReviewsOfCharacter(characterId);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+
+            }
+
+            if (_reviewRespository.DeleteReviews(reviewsToBeDeleted.ToList()))
+            {
+                ModelState.AddModelError("", "Something went wrong while deleting reviews of this Character ");
+                return StatusCode(500, ModelState);
+
+
+            }
+
+            if (!_characterRepository.DeleteCharacter(character))
+            {
+                ModelState.AddModelError("", "Somethign went wrong while deleting Character");
+
+                return StatusCode(500, ModelState);
+            }
+
+
+            return Ok("Successfully Deleted !");
+        }
+
+
 
     }
 }

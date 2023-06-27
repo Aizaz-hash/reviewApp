@@ -93,5 +93,11 @@ namespace ReviewApp.Repository
 
             return save();
         }
+
+        public bool DeleteCharacter(Character character)
+        {
+            _Context.Remove(character);
+            return save();
+        }
     }
 }

@@ -16,11 +16,13 @@ namespace ReviewApp.Controller
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
+        private readonly ICharacterRespsoitory _characterRespsoitory;
 
-        public CategoryController(ICategoryRepository categoryRepository, IMapper mapper)
+        public CategoryController(ICategoryRepository categoryRepository, IMapper mapper , ICharacterRespsoitory characterRespsoitory)
         {
             _categoryRepository = categoryRepository;
             _mapper = mapper;
+            _characterRespsoitory = characterRespsoitory;
         }
 
         [HttpGet]
@@ -159,6 +161,41 @@ namespace ReviewApp.Controller
             return Ok("successfullt updated !");
 
         }
+
+
+        [HttpDelete("{catgoryId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteCategory(int catgoryId)
+        {
+            if(!_categoryRepository.CategoriesExists(catgoryId))
+            {
+                return BadRequest(ModelState);
+            }
+
+            var category = _categoryRepository.GetCategory(catgoryId);
+
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+              
+            }
+
+            if (!_categoryRepository.DeleteCategory(category))
+            {
+                ModelState.AddModelError("", "Somethign went wrong while deleting Category");
+
+                return StatusCode(500, ModelState);
+            }
+
+
+            return Ok("Successfully Deleted !");
+
+
+        }
+
 
 
 

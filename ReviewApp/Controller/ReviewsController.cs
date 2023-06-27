@@ -175,5 +175,37 @@ namespace ReviewApp.Controller
             return Ok("successfullt updated !");
 
         }
+
+
+        [HttpDelete("{reviewID}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteOwner(int reviewID)
+        {
+            if (!_reviewRespository.ReviewExists(reviewID))
+            {
+                return BadRequest(ModelState);
+            }
+
+            var review = _reviewRespository.GetReview(reviewID);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+
+            }
+
+            if (!_reviewRespository.DeleteReview(review))
+            {
+                ModelState.AddModelError("", "Somethign went wrong while deleting Review");
+
+                return StatusCode(500, ModelState);
+            }
+
+
+            return Ok("Successfully Deleted !");
+        }
     }
 }

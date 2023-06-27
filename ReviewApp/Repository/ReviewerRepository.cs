@@ -26,6 +26,12 @@ namespace ReviewApp.Repository
             return save();
         }
 
+        public bool DeleteReviewer(Reviewers reviewers)
+        {
+            _context.Remove(reviewers); 
+            return save();
+        }
+
         public Reviewers GetReviewer(int reviewerId)
         {
             return _context.reviewers.Where(r=>r.Id == reviewerId).Include(e=>e.reviews) .FirstOrDefault();

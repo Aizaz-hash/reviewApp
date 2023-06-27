@@ -24,6 +24,19 @@ namespace ReviewApp.Repository
             return save();
         }
 
+        public bool DeleteReview(Reviews review)
+        {
+            _context.Remove(review);
+            return save();
+        }
+
+  
+        public bool DeleteReviews(List<Reviews> reviews)
+        {
+            _context.RemoveRange(reviews);
+            return save();
+        }
+
         public Reviews GetReview(int reviewID)
         {
             return _context.reviews.Where(r=>r.Id == reviewID).FirstOrDefault();

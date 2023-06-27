@@ -15,6 +15,7 @@ namespace ReviewApp.Interfaces
         bool CreateCharacter(int ownerId , int categoryId , Character character);
 
         bool UpdateCharacter(int ownerId, int categoryId, Character character);
+        bool DeleteCharacter(Character character);
 
         bool save();
     }

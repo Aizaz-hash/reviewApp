@@ -54,6 +54,13 @@ namespace ReviewApp.Repository
 
             return save > 0 ? true : false;
         }
+
+        public bool UpdateOwner(Owner owner)
+        {
+            _context.Update(owner);
+
+            return save();
+        }
     }
 }
 

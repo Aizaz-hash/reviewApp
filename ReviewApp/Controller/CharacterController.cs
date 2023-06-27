@@ -14,11 +14,14 @@ namespace ReviewApp.Controller
     {
         private readonly ICharacterRespsoitory _characterRepository;
         private readonly IMapper _mapper;
+        private readonly IReviewRespository _reviewRespository;
+
         public CharacterController(ICharacterRespsoitory characterRepository ,
-            IMapper mapper)
+            IMapper mapper , IReviewRespository reviewRespository)
         {
             _characterRepository = characterRepository;
             _mapper = mapper;
+            _reviewRespository = reviewRespository;
         }
 
         [HttpGet]
@@ -117,6 +120,50 @@ namespace ReviewApp.Controller
             }
 
             return Ok("successfully created !");
+
+        }
+
+
+        [HttpPut("{characterId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public IActionResult updateCharacter( int characterId, [FromQuery] int ownderId ,
+            [FromQuery] int categoryId,[FromBody] CharacterDTO characterUpdate)
+        {
+            if (updateCharacter == null)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (characterId != characterUpdate.Id)
+            {
+                return BadRequest(ModelState);
+
+            }
+
+            if (!_characterRepository.CharacterExists(characterId))
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var characterMap = _mapper.Map<Character>(characterUpdate);
+
+            if (!_characterRepository.UpdateCharacter(ownderId, categoryId,characterMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while updating Character");
+                return StatusCode(500, ModelState);
+
+            }
+
+
+            return Ok("successfullt updated !");
 
         }
 

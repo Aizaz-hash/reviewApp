@@ -14,6 +14,7 @@ namespace ReviewApp.Interfaces
         ICollection<Reviews> GetReviewsByReviewer(int reviewerId);
 
         bool CreateReviewer(Reviewers reviewers);
+        bool UpdateReviewer(Reviewers reviewers);
 
         bool save();
 

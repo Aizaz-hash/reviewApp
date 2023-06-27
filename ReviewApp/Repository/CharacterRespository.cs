@@ -86,5 +86,12 @@ namespace ReviewApp.Repository
 
             return saved>0 ?  true:false;
         }
+
+        public bool UpdateCharacter(int ownerId, int categoryId, Character character)
+        {
+            _Context.Update(character);
+
+            return save();
+        }
     }
 }

@@ -46,5 +46,12 @@ namespace ReviewApp.Repository
 
             return save > 0? true: false;
         }
+
+        public bool UpdateCategory(Category category)
+        {
+            _context.Update(category);
+
+            return save();
+        }
     }
 }

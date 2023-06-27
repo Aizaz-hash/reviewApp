@@ -55,5 +55,12 @@ namespace ReviewApp.Repository
 
             return saved > 0 ? true : false;
         }
+
+        public bool UpdateReviewer(Reviewers reviewers)
+        {
+            _context.Update(reviewers);
+
+            return save();
+        }
     }
 }

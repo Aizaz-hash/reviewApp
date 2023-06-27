@@ -17,5 +17,8 @@ namespace ReviewApp.Interfaces
         public bool CreateOwner(Owner owner);
         public bool save();
 
+        bool UpdateOwner(Owner owner);
+
+
     }
 }

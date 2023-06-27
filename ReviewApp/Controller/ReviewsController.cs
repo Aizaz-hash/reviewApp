@@ -131,5 +131,49 @@ namespace ReviewApp.Controller
 
 
         }
+
+
+
+        [HttpPut("{reviewID}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public IActionResult UpdateReview(int reviewID, [FromBody] ReviewsDTO reviewUpdate)
+        {
+            if (UpdateReview == null)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (reviewID != reviewUpdate.Id)
+            {
+                return BadRequest(ModelState);
+
+            }
+
+            if (!_reviewerRepository.ReviewerExists(reviewID))
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var reviewMap = _mapper.Map<Reviews>(reviewUpdate);
+
+            if (!_reviewRespository.UpdateReview(reviewMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while updating Reviews");
+                return StatusCode(500, ModelState);
+
+            }
+
+
+            return Ok("successfullt updated !");
+
+        }
     }
 }

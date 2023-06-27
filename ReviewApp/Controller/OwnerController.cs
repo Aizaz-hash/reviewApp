@@ -118,6 +118,48 @@ namespace ReviewApp.Controller
 
         }
 
+        [HttpPut("{ownerId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public IActionResult updateOwner(int ownerId, [FromBody] OwnerDTO ownerUpdate)
+        {
+            if (updateOwner == null)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (ownerId != ownerUpdate.Id)
+            {
+                return BadRequest(ModelState);
+
+            }
+
+            if (!_ownerRespository.OwnerExists(ownerId))
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var ownerMap = _mapper.Map<Owner>(ownerUpdate);
+
+            if (!_ownerRespository.UpdateOwner(ownerMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while updating Owner");
+                return StatusCode(500, ModelState);
+
+            }
+
+
+            return Ok("successfullt updated !");
+
+        }
+
 
 
 

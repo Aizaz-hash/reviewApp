@@ -8,6 +8,19 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyAllowSpecificOrigins,
+                          policy =>
+                          {
+                              policy.WithOrigins("https://localhost:7000")
+                                                  .AllowAnyHeader()
+                                                  .AllowAnyMethod();
+                          });
+});
+
 // Add services to the container.
 builder.Services.AddControllers();
 //sseding data
@@ -64,6 +77,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseCors(MyAllowSpecificOrigins);
 app.MapControllers();
 
 app.Run();

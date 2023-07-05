@@ -87,16 +87,6 @@ C:\Users\Admin\Desktop\dotnet\New folder\ReviewApp\ReviewApp\obj\Debug\net6.0\Re
 C:\Users\Admin\Desktop\dotnet\New folder\ReviewApp\ReviewApp\obj\Debug\net6.0\ref\ReviewApp.dll
 C:\Users\Admin\Desktop\dotnet\New folder\ReviewApp\ReviewApp\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\Admin\Desktop\dotnet\New folder\ReviewApp\ReviewApp\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.csproj.AssemblyReference.cache
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.AssemblyInfoInputs.cache
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.AssemblyInfo.cs
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.dll
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\refint\ReviewApp.dll
-C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.pdb
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\appsettings.json
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\ReviewApp.exe
@@ -109,6 +99,10 @@ C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\AutoMapper.Ex
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\System.Web.Cors.dll
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\System.Web.Http.Cors.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -138,6 +132,8 @@ C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Microsoft.Ope
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -165,6 +161,13 @@ C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\runtimes\win\
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.AssemblyInfo.cs
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\staticwebassets\msbuild.ReviewApp.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\staticwebassets\msbuild.build.ReviewApp.props
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ReviewApp.props
@@ -174,5 +177,8 @@ C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\staticwebasse
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\scopedcss\bundle\ReviewApp.styles.css
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.csproj.CopyComplete
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.dll
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\refint\ReviewApp.dll
+C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.pdb
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ReviewApp.genruntimeconfig.cache
 C:\Users\Admin\Desktop\dotnet\ReviewApp\ReviewApp\obj\Debug\net6.0\ref\ReviewApp.dll

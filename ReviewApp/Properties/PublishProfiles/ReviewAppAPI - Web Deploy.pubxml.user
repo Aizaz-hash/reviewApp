@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9YkJwkU9u0uW6XkHQIRshAAAAAACAAAAAAAQZgAAAAEAACAAAAAIi75PSMHqF8QKVfmLbUWZBOoQF7Mjm/Q2Ca5lvnpNaAAAAAAOgAAAAAIAACAAAAAZNSltSby7AKvenhip7zMO3IcmeFnxx1aQn048jM04YoAAAADcTCk3sXFcl0ALFTTOkcFa66KHmb2AzKE5nTI2YjIKW0oMZTnpTGhEPKXCM75fzEY0dfhvz5l6nIxnUIQXnyuw43bJDRxU6D0Hma8oy6os6o7oT0UNkFNR+jvDPu5g1ztTRSo/C2XAkQfhOI8D75dpvwHQKb+IQdiiLbdsqikgQEAAAAC38NO4DS0sgL47zkHXrmo7B0V17AsarHHY39kok6YCt/p/bvdo2hrocr5LbqdCT/NtQgrbNqU1VBKzTzDMR/A7</EncryptedPassword>
+    <History>True|2023-07-05T13:46:42.5722954Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="ReviewApp.Data.DataContext">
+      <Value>Data Source=tcp:reviewappdbserver.database.windows.net,1433%3bInitial Catalog=ReviewApp_db%3bUser Id=aizazzaheen%40reviewappdbserver%3bPassword=Aizaz333%40</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
